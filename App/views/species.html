@@ -1,0 +1,65 @@
+﻿<section>
+    <div class="border-bottom pt-4 pb-2 mb-3" style="margin-bottom: 0 !important; padding-bottom: 0 !important;">
+        <h2 data-bind="text:displayName"></h2>
+    </div>
+    <div class="row small" style="margin: 3px;">
+        <div id="idlol" class="col-auto myButton mySelected" style="color: #666;padding:0; text-align: center;line-height: 2rem;vertical-align: middle;font-weight: 900;font-size: 1.5rem;" data-bind="click: ordemID">ID</div>
+        <div id="alpha" class="col-auto myButton" style="padding: 2px;" data-bind="click: ordemAlpha"><img src="./images/alpha.png" style="width: 100%; height: 100%; display: inline-block; vertical-align: middle;"></div>
+        <div id="color" class="col-auto myButton" style="padding: 2px;" data-toggle="modal" data-target="#exampleModalCenter"><img src="./images/color.png" style="width: 100%; height: 100%; display: inline-block; vertical-align: middle;"></div>
+        <div id="generation" class="col-auto myButton" style="padding: 2px;" data-toggle="modal" data-target="#exampleModalCenter2"><img src="./images/generations.png" style="width: 100%; display: inline-block; vertical-align: middle;"></div>
+    </div>
+    <div class="clearfix"></div>
+    <table class="table table-striped table-sm textoLegivel">
+        <thead>
+            <tr>
+            <th scope="col" style="vertical-align: middle;">ID</th>
+            <th scope="col" style="vertical-align: middle;">Name</th>
+            <th scope="col" class="text-center" style="vertical-align: middle;">Pokemóns</th>
+            <th scope="col" class="text-center" style="vertical-align: middle;"><i class="fa fa-cog"></i></th></tr>
+        </thead>
+        <tbody>
+            <!-- ko foreach: records  -->
+            <tr>
+                <td data-bind="text:Id" style="vertical-align: middle;"></td>
+                <td data-bind="text:Name" style="vertical-align: middle;"></td>
+                <td class="text-center" data-bind="text:PokemonsCounter" style="vertical-align: middle;"></td>
+                <td class="text-center" style="vertical-align: middle;"><a class="btn searchButton btn-sm" data-bind="attr: {href:'#specieDetails/'+Id }"><i class="fa fa-eye"></i></a></td>
+            </tr>
+            <!-- /ko -->
+        </tbody>
+    </table>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="border: 0;">
+                <div class="row" style="background: #666;  padding: 2px; border: 3px solid #999;border-radius: 0.50rem;">
+                    <div data-dismiss='modal' data-backdrop='false' data-bind="click: ordemBlack" class="col-auto myOtherButton" style="background-color: black;"></div>
+                    <div data-dismiss='modal' data-backdrop='false'  data-bind="click: ordemGray" class="col-auto myOtherButton" style="background-color:gray ;"></div  >
+                    <div data-dismiss='modal' data-backdrop='false' data-bind="click: ordemBrown" class="col-auto myOtherButton" style="background-color: rgb(165, 81, 42);"></div>
+                    <div data-dismiss='modal' data-backdrop='false' data-bind="click: ordemRed" class="col-auto myOtherButton" style="background-color: red;"></div>
+                    <div data-dismiss='modal' data-backdrop='false' data-bind="click: ordemPink" class="col-auto myOtherButton" style="background-color: rgb(250, 48, 216);"></div>
+                    <div data-dismiss='modal' data-backdrop='false' data-bind="click: ordemPurple" class="col-auto myOtherButton" style="background-color: rgb(121, 0, 151);"></div>
+                    <div data-dismiss='modal' data-backdrop='false' data-bind="click: ordemBlue" class="col-auto myOtherButton" style="background-color: rgb(0, 85, 212);"></div>
+                    <div data-dismiss='modal' data-backdrop='false' data-bind="click: ordemGreen" class="col-auto myOtherButton"  style="background-color: rgb(101, 168, 0);"></div>
+                    <div data-dismiss='modal' data-backdrop='false' data-bind="click: ordemYellow" class="col-auto myOtherButton" style="background-color: yellow;"></div>
+                    <div data-dismiss='modal' data-backdrop='false' data-bind="click: ordemWhite" class="col-auto myOtherButton" style="background-color: white ;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="border: 0;">
+                <div class="row" style="background: #666;  padding: 2px; border: 3px solid #999;border-radius: 0.50rem;">
+                    <div data-dismiss='modal' data-backdrop='false' data-bind="click: ordemGenI" class="col-auto myOtherButton" style="background-color: rgb(194, 194, 194); color: black;padding: 0; text-align: center;line-height: 2rem;vertical-align: middle;font-weight: 900;font-size: 1.5rem;">I</div>
+                    <div data-dismiss='modal' data-backdrop='false'  data-bind="click: ordemGenII" class="col-auto myOtherButton" style="background-color:rgb(168, 168, 168) ;color: black;padding: 0;text-align: center;line-height: 2rem;vertical-align: middle;font-weight: 900;font-size: 1.5rem;">II</div  >
+                    <div data-dismiss='modal' data-backdrop='false' data-bind="click: ordemGenIII" class="col-auto myOtherButton" style="background-color: rgb(143, 143, 143);color: black;padding: 0;text-align: center;line-height: 2rem;vertical-align: middle;font-weight: 900;font-size: 1.5rem;">III</div>
+                    <div data-dismiss='modal' data-backdrop='false' data-bind="click: ordemGenIV" class="col-auto myOtherButton" style="background-color: rgb(116, 116, 116);color: black;padding: 0;text-align: center;line-height: 2rem;vertical-align: middle;font-weight: 900;font-size: 1.5rem;">IV</div>
+                    <div data-dismiss='modal' data-backdrop='false' data-bind="click: ordemGenV" class="col-auto myOtherButton" style="background-color: rgb(92, 92, 92);color: black;padding: 0;text-align: center;line-height: 2rem;vertical-align: middle;font-weight: 900;font-size: 1.5rem;">V</div>
+                    <div data-dismiss='modal' data-backdrop='false' data-bind="click: ordemGenVI" class="col-auto myOtherButton" style="background-color: rgb(82, 82, 82);color: black;padding: 0;text-align: center;line-height: 2rem;vertical-align: middle;font-weight: 900;font-size: 1.5rem;">VI</div>
+                    <div data-dismiss='modal' data-backdrop='false' data-bind="click: ordemGenVII" class="col-auto myOtherButton" style="background-color: rgb(66, 66, 66);color: black;padding: 0;text-align: center;line-height: 2rem;vertical-align: middle;font-weight: 900;font-size: 1.5rem;">VII</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

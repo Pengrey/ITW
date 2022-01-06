@@ -1,0 +1,93 @@
+﻿<section>
+    <div class="border-bottom pt-4 pb-2 mb-3">
+        <h2 data-bind="text:displayName"></h2>
+    </div>
+    <div class="container" data-bind="with: record">
+        <div class="row">
+            <div class="col-md-8 col-sm-12" style="padding: 0;">
+                <div class="row" style="height:25%; border:1 solid #666; margin:0;" >
+                    <span id="name" style="font-size: 50px;margin: auto 0;padding-right:15px; padding-left: 15px;" data-bind="text:Name.toUpperCase()"></span><span id="id" data-bind="text:'ID: ' + Id" style="font-size: 20px;margin: auto 0"></span>
+                </div>
+                <div class="col-12" style="border:1 solid #666;height: 75%;" ><span data-bind="text: flavorText[0].Text" style="font-size: 30px;"></span></div>
+            </div>
+            <div id="pokeImg" class="col-md-4 col-sm-12" style="border:1 solid #666;padding: 0; " >
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img data-bind="attr : { src : 'http://ieeta-cloudpt.web.ua.pt/itw/pokemons/Imagens/' + Id + '.png', style : 'width: 256px;', title: Name}" onerror="this.src = './images/pokemon-icon.png'; this.style.width = '128px';" class="d-block w-100" src="...">
+                        </div>
+                        <!-- ko foreach: pokemon  -->
+                        <!-- ko if: Id!= $parent.Id-->
+                        <div class="carousel-item">
+                            <img data-bind="attr : { src : 'http://ieeta-cloudpt.web.ua.pt/itw/pokemons/Imagens/' + Id + '.png', style : 'width: 256px;', title: Name}" onerror="this.src = './images/pokemon-icon.png'; this.style.width = '128px';" class="d-block w-100" src="...">
+                        </div>
+                        <!-- /ko-->
+                        <!-- /ko -->
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="pokeDeets" class="col-md-8 col-sm-12" style="border:1 solid #666;">
+                <div class="row" style="border-bottom:1 solid #666; min-height: 35px;">
+                    <div class="col-4" style="margin: auto 0;">Egg Group</div>
+                    <div class="col-8" style="margin: auto 0;padding: 0;">
+                        <!-- ko foreach: eggGroup -->
+                        <span class="img-thumbnail px-3 py-1 text-white border-secondary" data-bind="style : { 'background-color': Color }, text: Name.toUpperCase()"></span>
+                        <!-- /ko -->
+                    </div>
+                </div>
+                <div class="row" style="border-bottom:1 solid #666;">
+                    <div class="col-4" style="margin: auto 0; border-right: 1 solid  #666; ">Color</div>
+                    <div class="col-8" style="margin: auto 0;" data-bind="text:Color.toUpperCase()"></div>
+                </div>
+                <div class="row" style="border-bottom:1 solid #666;">
+                    <div class="col-4" style="margin: auto 0; border-right: 1 solid  #666; ">Shape</div>
+                    <div class="col-8" style="margin: auto 0;" data-bind="text:Shape.toUpperCase()"></div>
+                </div>
+                <div class="row" style="border-bottom:1 solid #666;">
+                    <div class="col-4" style="margin: auto 0; border-right: 1 solid  #666; ">Genera</div>
+                    <div class="col-8" style="margin: auto 0;" data-bind="text:Genera.toUpperCase()"></div>
+                </div>
+                <div class="row" style="border-bottom:1 solid #666;">
+                    <div class="col-4" style="text-align: left; margin: auto 0; border-right: 1 solid  #666; ">Evolves From Specie:</div>
+                    <div class="col-8" style="margin: auto 0;" data-bind="text:EvolvesFromSpecie.toUpperCase()"></div>
+                </div>
+                <div class="row" style="border-bottom:1 solid #666;">
+                    <div class="col-4" style="margin: auto 0; border-right: 1 solid  #666; ">Generation</div>
+                    <div class="col-8" style="margin: auto 0;" data-bind="text:Generation.toUpperCase()"></div>
+                </div>
+                <div class="row" style="border-bottom:1 solid #666;">
+                    <div class="col-4" style="text-align: left; margin: auto 0; border-right: 1 solid  #666; ">Has Gender Differences?</div>
+                    <div class="col-8" style="margin: auto 0;" data-bind="text:HasGenderDifferences"></div>
+                </div>
+                <div class="row">
+                    <div class="col-4" style="text-align: left; margin: auto 0; border-right: 1 solid  #666; ">Is Baby?</div>
+                    <div class="col-8" style="margin: auto 0;" data-bind="text:IsBaby"></div>
+                </div>
+            </div>
+            <div id="pokeGraph" class="col-md-4 col-sm-12" style="border:1 solid #666;" >
+                <dl>
+                    <dt>Base Happiness</dt>
+                    <dd style="border: 1 solid #000; border-radius: 0.25rem;" data-bind="style : { color: 'white', background: 'rgb(207, 0, 207)', width: 2.5*BaseHappiness}, text:BaseHappiness"></dd>
+                    <dt>Capture Rate</dt>
+                    <dd style="border: 1 solid #000; border-radius: 0.25rem;" data-bind="style : { color: 'white', background: 'rgb(207, 0, 0)', width: 1.2*CaptureRate}, text:CaptureRate"></dd>
+                    <dt>Female/Male Rate</dt>
+                    <dd style="border: 1 solid #000; border-radius: 0.25rem;" data-bind="style : { color: 'white', background: 'rgb(0, 114, 207)', width: 2.5*FemaleToMaleRate}, text:FemaleToMaleRate+'%'"></dd>
+                    <dt>Hatch Counter</dt>
+                    <dd style="border: 1 solid #000; border-radius: 0.25rem;" data-bind="style : { color: 'white', background: 'rgb(128, 207, 0)', width: 2.5*HatchCounter}, text:HatchCounter"></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <a class="btn btn-outline-secondary" href="#species"><i class=" fa fa-arrow-circle-o-left"></i> Back to Species List</a>
+</section>
